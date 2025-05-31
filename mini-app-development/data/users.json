@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "login": "111",
+      "email": "111",
+      "password": "$2b$10$yHvdQlA07wGhvAy80fGG5eBvdf7sndhDRI1qI/Q.WYSEQOmA502Fa"
+    },
+    {
+      "id": 2,
+      "login": "222",
+      "email": "222",
+      "password": "$2b$10$04mbskU7RkHtjCLWCCoDHu5gov6LCJb6R4NaCl3NS3wsARRbIrfga"
+    },
+    {
+      "id": 3,
+      "login": "333",
+      "email": "333",
+      "password": "$2b$10$zrAFrU6TzztNrFznzfRmtu6yo3G79VP55QDrDSWchsZriJIlURksC"
+    }
+  ]
+}
