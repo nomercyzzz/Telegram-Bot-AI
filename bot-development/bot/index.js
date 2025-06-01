@@ -19,19 +19,27 @@ command_help(bot);
 
 bot.command("menu", (ctx) => {
     ctx.reply('<b>✨ Выберите действие:</b>', {
-    parse_mode:"HTML",
-    reply_markup: {
-        keyboard: [
-        [{ text: "🚀 Открыть мини-приложение" }],
-        [{ text: "ℹ️ Информация" }, { text: "❓ Помощь" }]
-    ],
-      // делаем клавиатуру компактной
-        resize_keyboard: true,
-      // клавиатура остаётся после нажатия 
-        one_time_keyboard: false 
-    }
+        parse_mode: "HTML",
+        reply_markup: {
+            keyboard: [
+                [{ 
+                    text: "🚀 Открыть мини-приложение",
+                    web_app: {
+                        url: 'https://solid-pugs-return.loca.lt'
+                    }
+                }],
+                [
+                    { text: "ℹ️ Информация", callback_data: 'info' }, 
+                    { text: "❓ Помощь", callback_data: 'help' }
+                ]
+            ],
+            resize_keyboard: true,
+            one_time_keyboard: false
+        }
+    });
 });
-});
+
+
 
 
 

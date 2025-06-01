@@ -6,7 +6,9 @@ body{
     font-family: Arial, sans-serif;
     background-color: #1a1a1a;
 }
-
+.container-login, .container-registration {
+    transition: all 0.4s ease-in-out;
+}
 /* КОНТЕЙНЕР С ВХОДОМ */
 .container-login{
     padding: 0px 32px;
@@ -154,4 +156,54 @@ body{
     padding-left: 32px;
     padding-right: 32px;
     color: #808080;
+}
+
+
+@media (max-width: 400px){
+    .container-login, .container-registration{
+        width: 70%;
+        height: 70%;
+        border-radius: 24px;
+    } 
+    .container-registration .option{
+        margin-bottom: 20px !important;
+    }
+    .option{
+        margin-top: 0px !important;
+        position:static;
+        bottom: 0px;
+    }
+    .login-click, .registration-click {
+        margin: 0px 0;
+        font-size: 22px;
+    }
+    .information{
+        font-size: 18px;
+        padding: 0;
+    }
+    .input-xxx input{
+        width: 87%;
+        height: 50px;
+    }
+    .input-xxx label{
+        font-size: 18px;
+        left: 18px;
+        top: 26px;
+    }
+    .input-xxx{
+        margin-bottom: 20px !important;
+        margin: 0;
+
+    }
+    .button-xxx button{
+        font-size: 22px;
+        height: 50px;
+        color: #e0e0e0;
+        border-radius: 12px;
+        margin-top: 0;
+    }
+    .input-xxx input:focus + label, .input-xxx input:user-valid + label{
+    font-size: 18px;
+    }
+
 }

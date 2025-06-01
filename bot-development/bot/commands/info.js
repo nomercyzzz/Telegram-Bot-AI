@@ -23,12 +23,13 @@ module.exports = function command_info(bot) {
             }
         );
     });
+
         bot.hears('⬅️ Главное меню', (ctx) => {
         ctx.reply('<b>✅ Вы вернулись в главное меню </b>',{
             parse_mode: "HTML",
             reply_markup: {
                 keyboard: [
-                    [{ text: "🚀 Открыть мини-приложение" }],
+                    [{ text: "🚀 Открыть мини-приложение", web_app: { url: 'https://solid-pugs-return.loca.lt'} }],
                     [{ text: "ℹ️ Информация" }, { text: "❓ Помощь" }]
                 ],
                 resize_keyboard: true, 

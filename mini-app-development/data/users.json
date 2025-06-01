@@ -17,6 +17,12 @@
       "login": "333",
       "email": "333",
       "password": "$2b$10$zrAFrU6TzztNrFznzfRmtu6yo3G79VP55QDrDSWchsZriJIlURksC"
+    },
+    {
+      "id": 4,
+      "login": "555",
+      "email": "555",
+      "password": "$2b$10$0H6lagoAt9xguRsUyhvZDuvRPAnETc02Lzbozl034LdPgPR6ihSXS"
     }
   ]
 }

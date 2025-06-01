@@ -12,46 +12,41 @@ app.use(express.json());
 
 const USERS_FILE = path.join(__dirname, 'data', 'users.json');
 
-// Используем переменные из .env
+
 const JWT_SECRET = process.env.JWT_SECRET;
 const JWT_EXPIRES = process.env.JWT_EXPIRES;
 
 
-// Чтение пользователей
+
 function readUsers() {
         const data = fs.readFileSync(USERS_FILE, 'utf8');
         return JSON.parse(data).users;
 }
 
-// Сохранение пользователей
+
 function saveUsers(users) {
     fs.writeFileSync(USERS_FILE, JSON.stringify({ users }, null, 2));
 }
 
 
-// Добавляем обслуживание статических файлов
+
 app.use(express.static(path.join(__dirname, 'auth')));
 app.use('/data', express.static(path.join(__dirname, 'data')));
 
 
-// Главная страница
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'auth', 'user-account.html'));
 });
 
 
-
-// Регистрация
 app.post('/api/register', (req, res) => {
     const { login, email, password } = req.body;
     const users = readUsers();
 
-        // Проверка существующего пользователя
     if (users.some(user => user.login === login || user.email === email)) {
         return res.status(400).json({ message: 'Пользователь уже существует' });
     }
 
-        // Создаем нового пользователя
         const hashedPassword = bcrypt.hashSync(password, 10);
         const newUser = {
             id: users.length + 1,
@@ -65,12 +60,11 @@ app.post('/api/register', (req, res) => {
         const token = jwt.sign(
             { userId: newUser.id }, 
             JWT_SECRET || 'default_secret_key',
-            { expiresIn: JWT_EXPIRES || '1h' }
+            { expiresIn: JWT_EXPIRES || '24h' }
         );
     res.json({ token });
 });
 
-// Вход
 app.post('/api/login', (req, res) => {
         const { login, password } = req.body;
         const users = readUsers();

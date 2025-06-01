@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.querySelector('.container-login form');
     const registerForm = document.querySelector('.container-registration form');
 
-    // Регистрация
     registerForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const formData = {
@@ -29,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     });
 
-    // Вход
     loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const formData = {
