@@ -23,6 +23,12 @@
       "login": "555",
       "email": "555",
       "password": "$2b$10$0H6lagoAt9xguRsUyhvZDuvRPAnETc02Lzbozl034LdPgPR6ihSXS"
+    },
+    {
+      "id": 5,
+      "login": "fssdfsd",
+      "email": "dsfsdf",
+      "password": "$2b$10$9ecKuKCQ3K1jzOGZguhOl.33uZBnx0G0yiY1af2M0EbLWp49eT.rG"
     }
   ]
 }

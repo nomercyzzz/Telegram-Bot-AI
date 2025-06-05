@@ -3,6 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.querySelector('.container-login form');
     const registerForm = document.querySelector('.container-registration form');
 
+    function redirectToApp() {
+        window.location.href = '/chat-ai';
+
+    }
+
     registerForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const formData = {
@@ -20,12 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             if (data.token) {
                 localStorage.setItem('token', data.token);
-                alert('Регистрация успешна!');
                 registerForm.reset();
+                redirectToApp();
             } else {
                 alert(data.message || 'Ошибка при регистрации');
             }
         })
+        .catch(error => {
+            console.error('Ошибка:', error);
+            alert('Произошла ошибка при регистрации');
+        });
     });
 
     loginForm.addEventListener('submit', (e) => {
@@ -44,11 +53,15 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             if (data.token) {
                 localStorage.setItem('token', data.token);
-                alert('Вход выполнен успешно!');
                 loginForm.reset();
+                redirectToApp();
             } else {
                 alert(data.message || 'Неверный логин или пароль');
             }
         })
+        .catch(error => {
+            console.error('Ошибка:', error);
+            alert('Произошла ошибка при входе');
+        });
     });
 });

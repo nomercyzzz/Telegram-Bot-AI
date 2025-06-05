@@ -4,6 +4,8 @@ const path = require('path');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const cors = require('cors');
+const { Ollama } = require('ollama');
+const { getAIReply } = require('./ai/ai-logic');
 
 const app = express();
 app.use(cors());
@@ -28,11 +30,16 @@ function saveUsers(users) {
     fs.writeFileSync(USERS_FILE, JSON.stringify({ users }, null, 2));
 }
 
-
+const ollama = new Ollama();
 
 app.use(express.static(path.join(__dirname, 'auth')));
 app.use('/data', express.static(path.join(__dirname, 'data')));
+app.use('/chat-ai', express.static(path.join(__dirname, 'my-react-app', 'dist')));
 
+
+app.get('/chat-ai', (req, res) => {
+    res.sendFile(path.join(__dirname, 'my-react-app', 'dist', 'index.html'));
+});
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'auth', 'user-account.html'));
@@ -80,6 +87,17 @@ app.post('/api/login', (req, res) => {
             { expiresIn: JWT_EXPIRES || '1h' }
         );
     res.json({ token });
+});
+
+app.post('/api/message', async (req, res) => {
+    const { message, role } = req.body;
+    let mode = 'default';
+    if (role === 'evil') mode = 'zloy';
+    else if (role === 'lazy') mode = 'lenb';
+    else if (role === 'femboy') mode = 'femboy';
+    else if (role === 'humor') mode = '0_0';
+    const reply = await getAIReply(message, mode);
+    res.json({ reply });
 });
 
 app.listen(3000, () => {

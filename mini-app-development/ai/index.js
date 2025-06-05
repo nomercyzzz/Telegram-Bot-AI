@@ -1,7 +1,6 @@
 const { Ollama } = require('ollama');
 const readline = require('readline');
 const fs = require('fs');
-
 const MODEL = 'gemma3';
 let Mode = 'default'
 
