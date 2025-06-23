@@ -2,7 +2,7 @@ const { Ollama } = require('ollama');
 const path = require('path');
 const fs = require('fs');
 
-const MODEL = 'gemma3';
+const MODEL = 'llama3';
 
 function getSystemPrompt(mode = 'default') {
   const promptPath = path.join(__dirname, 'prompts', `${mode}.txt`);

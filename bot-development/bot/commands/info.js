@@ -29,7 +29,6 @@ module.exports = function command_info(bot) {
             parse_mode: "HTML",
             reply_markup: {
                 keyboard: [
-                    [{ text: "🚀 Открыть мини-приложение", web_app: { url: 'https://solid-pugs-return.loca.lt'} }],
                     [{ text: "ℹ️ Информация" }, { text: "❓ Помощь" }]
                 ],
                 resize_keyboard: true, 
